@@ -1,0 +1,8 @@
+{
+	"body": "{\"name\":\"James Cook\",\"email\":\"james@jdccook.co.uk\",\"phone\":\"07957254910\",\"message\":\"hi please can you call me to discuss\"}",
+	"requestContext": {
+		"identity": {
+			"cognitoIdentityId": "USER-SUB-1234"
+		}
+	}
+}

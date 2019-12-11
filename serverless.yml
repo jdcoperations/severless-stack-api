@@ -21,6 +21,8 @@ provider:
   # under process.env.
   environment:
     tableName: notes
+    contactTable: contact
+    resincardTable: resincard
     stripeSecretKey: ${env:STRIPE_SECRET_KEY}
 
 
@@ -110,6 +112,42 @@ functions:
       - http:
           path: billing
           method: post
+          cors: true
+          authorizer: aws_iam
+
+  contact:
+  # Defines an HTTP API endpoint that calls the main function in billing.js
+  # - path: url path is /billing
+  # - method: POST request
+    handler: submitcontact.main
+    events:
+      - http:
+          path: contact
+          method: post
+          cors: true
+          authorizer: aws_iam
+
+  resincard:
+  # Defines an HTTP API endpoint that calls the main function in billing.js
+  # - path: url path is /billing
+  # - method: POST request
+    handler: resincard.main
+    events:
+      - http:
+          path: resincard
+          method: post
+          cors: true
+          authorizer: aws_iam
+
+  getAllCard:
+  # Defines an HTTP API endpoint that calls the main function in billing.js
+  # - path: url path is /billing
+  # - method: POST request
+    handler: getAllCards.main
+    events:
+      - http:
+          path: getAllCard
+          method: get
           cors: true
           authorizer: aws_iam
 

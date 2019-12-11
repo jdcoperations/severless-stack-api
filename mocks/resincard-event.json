@@ -1,0 +1,8 @@
+{
+	"body": "{\"picUrl\":\"abc.jpg\",\"heading\":\"Purple Worktop\",\"description\":\"A very distinct piece or work.\",\"category\":\"Worktop\",\"price\":\"16.99\",\"availAction\":\"Buy\"}",
+	"requestContext": {
+		"identity": {
+			"cognitoIdentityId": "USER-SUB-1234"
+		}
+	}
+}

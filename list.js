@@ -3,16 +3,18 @@ import { success, failure } from "./libs/response-lib";
 
 export async function main(event, context) {
   const params = {
-    TableName: process.env.tableName,
+    TableName: process.env.resincardTable,
     // 'KeyConditionExpression' defines the condition for the query
     // - 'userId = :userId': only return items with matching 'userId'
     //   partition key
     // 'ExpressionAttributeValues' defines the value in the condition
     // - ':userId': defines 'userId' to be Identity Pool identity id
     //   of the authenticated user
-    KeyConditionExpression: "userId = :userId",
+    // KeyConditionExpression: "userId = :userId",
+    KeyConditionExpression: "cardId = :a",
     ExpressionAttributeValues: {
-      ":userId": event.requestContext.identity.cognitoIdentityId
+       ":a": event.body.name,
+       ":userId": event.requestContext.identity.cognitoIdentityId
     }
   };
 
